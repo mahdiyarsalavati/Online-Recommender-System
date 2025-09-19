@@ -1,0 +1,96 @@
+\documentclass[11pt,a4paper,twocolumn]{article}
+
+% Essential packages for Persian and bidirectional text
+\usepackage{xepersian}
+\usepackage{fontspec}
+
+% Set main language to Persian
+\setmainlanguage{persian}
+\setotherlanguage{english}
+
+% Font configuration (ensure fonts folder exists and contains Shazde fonts)
+\settextfont[Path=fonts/,Extension=.ttf]{Shazde-Regular}
+\settextfont[BoldFont=*-Bold]{}
+\settextfont[ItalicFont=*-Light]{}
+\settextfont[BoldItalicFont=*-Black]{}
+\setlatintextfont{Times New Roman}
+\setmonofont{Courier New}
+
+% Page layout and styling
+\usepackage[margin=2cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage[many]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+
+% Define colors
+\definecolor{primarycolor}{RGB}{25,25,112}
+\definecolor{secondarycolor}{RGB}{70,130,180}
+\definecolor{accentcolor}{RGB}{240,240,245}
+\definecolor{codebackground}{RGB}{248,248,248}
+\definecolor{titlebg}{RGB}{230,230,250}
+
+% Custom environments
+\tcbuselibrary{skins,breakable}
+\newtcolorbox{codebox}{
+    colback=codebackground,
+    colframe=secondarycolor,
+    boxrule=1pt,
+    arc=4pt,
+    left=6pt,
+    right=6pt,
+    top=6pt,
+    bottom=6pt,
+    fontupper=\small\ttfamily
+}
+\newtcolorbox{tipbox}{
+    colback=accentcolor,
+    colframe=primarycolor,
+    boxrule=1pt,
+    arc=4pt,
+    left=6pt,
+    right=6pt,
+    top=6pt,
+    bottom=6pt,
+    title={\color{primarycolor}\bfseries نکته مهم}
+}
+
+% Header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\textbf{آمار و احتمال}}
+\fancyhead[L]{\textbf{صفحه \thepage}}
+\renewcommand{\headrulewidth}{0.6pt}
+\setlength{\headheight}{15pt}
+
+\begin{document}
+
+\begin{titlepage}
+    \pagecolor{titlebg}
+    \centering
+    {\color{primarycolor}\Huge\bfseries آمار و احتمال \par}
+    {\color{secondarycolor}\large گردآورنده: مهدیار صلواتی \par}
+    {\large ۳ شهریور ۱۴۰۴ \par}
+    \vfill
+    {\large یک راهنمای جامع برای مفاهیم آمار و احتمال}
+\end{titlepage}
+\pagecolor{white}
+
+\begin{multicols}{2}
+\section{Z-score}
+یک تبدیل خطی است که برای استانداردسازی داده‌ها استفاده می‌شود:
+\begin{equation*}
+z_i = \dfrac{x_i - \bar{x}}{s}
+\end{equation*}
+
+\section{فرضیات Z-score}
+فرض‌های اساسی:
+\begin{itemize}[itemsep=5pt]
+    \item واریانس باید غیر صفر باشد.
+\end{itemize}
+\end{multicols}
+
+\end{document}
